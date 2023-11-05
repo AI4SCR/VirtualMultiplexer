@@ -1,0 +1,4 @@
+test:
+  run_id: ''
+  is_apply_tissue_mask: true
+  is_visualize: true

@@ -1,0 +1,84 @@
+train:
+  data:
+    input_nc: 3
+    output_nc: 3
+    patch_size: 512
+    downsample: 2
+    max_src_samples: -1
+    load_in_ram: true
+  model:
+    init_gain: 0.02
+    init_type: normal
+    no_antialias: true
+    no_antialias_up: true
+    discriminator:
+      n_layers_D: 3
+      ndf: 32
+      netD: n_layers
+      normD: instance
+    generator:
+      netG: resnet_9blocks
+      ngf: 64
+      normG: instance
+    projector:
+      netF: mlp_sample
+      netF_nc: 256
+    roi_discriminator:
+      base_filters: 16
+    roi_classifier:
+      base_filters: 16
+      roi_patch_size: 32
+  params:
+    seed: 0
+    n_epochs: 50
+    n_epochs_decay: 50
+    patch_batch_size: 16
+    patch_norm: true
+    patch_clip: true
+    is_image_match: true
+    image_match_freq: 1
+    image_model_name: vgg16
+    image_batch_size: 1
+    image_downsample: 4
+    tile_batch_size: 8
+    is_roi_discriminator: true
+    n_roi_bbox: 8
+    num_workers: 2
+    loss:
+      gan_loss:
+        flip_equivariance: false
+        gan_mode: lsgan
+        lambda_NCE: 1
+        nce_T: 0.07
+        nce_idt: true
+        nce_includes_all_negatives_from_minibatch: false
+        nce_layers: 0,4,8,12,16
+        nce_num_patches: 256
+      sc_loss:
+        lambda_con: 0.01
+        lambda_sty: 5
+      roi_loss:
+        lambda_d_roi: 0.5
+        lambda_c_roi: 1
+    optimizer:
+      class: Adam
+      lr:
+        lr_D: 0.0002
+        lr_G: 0.0002
+        lr_I: 1.0e-05
+        lr_D_ROI: 1.0e-05
+        lr_C_ROI: 1.0e-05
+        lr_decay_iters: 50
+        lr_policy: linear
+      params:
+        beta1: 0.5
+        beta2: 0.999
+    save:
+      continue_train: false
+      epoch_count: 1
+      loss_logging_freq: 20
+      save_model_freq: 5
+test:
+  run_id: ''
+  is_apply_tissue_mask: true
+  is_visualize: true
