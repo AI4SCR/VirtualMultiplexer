@@ -2,7 +2,7 @@
 
 This repository contains the code to reproduce results of **VirtualMultiplexer**, a generative toolkit that translates real H&E images to matching immunohistochemistry (IHC) images for several markers under unpaired setting.
 
-All the experiments are based on the EMPaCT dataset. The data needs to be downloaded separately. 
+All the experiments are based on the EMPaCT dataset. The data needs to be downloaded separately. The entire pipeline was implemented in Python (version 3.9.1). 
 
 ![Overview of the proposed approach.](figs/introduction.png)
 
@@ -31,7 +31,7 @@ All images from Hematoxylin & Eosin (H&E) and Immunohistochemistry (IHC) stainin
 
 ## Running the code 
 
-The proposed VirtualMultiplexer is a generative toolkit for unpaired stain-to-stain translation, trained on real H&E (source) and IHC (target) images.
+The VirtualMultiplexer is a generative toolkit for unpaired stain-to-stain translation, trained on real H&E (source) and IHC (target) images.
 VirtualMultiplexer outputs virtually stained IHC images that are consistent with the real IHC images in terms of appearance, from the macroscopic (image-level) to the microscopic (cell-level) scale.
 
 ### (Step 1: Training of VirtualMultiplexer)
