@@ -27,7 +27,7 @@ conda activate virtualmultiplexer
 
 European Multicenter Prostate Cancer Clinical and Translational Research Group (EMPaCT) [[1](https://www.sciencedirect.com/science/article/pii/S0022534712029710), [2](https://www.sciencedirect.com/science/article/pii/S2405456917300020), [3](https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2020.00246/full)] contains prostate cancer tissue microarrays (TMAs) from 210 patients with 4 cores per patient for several clinically relevant markers.
 
-The steps to download the data is to be updated. 
+All images from Hematoxylin & Eosin (H&E) and Immunohistochemistry (IHC) stainings are uploaded to Zenodo under a Creative Commons Attribution 4.0 International License and can be dowloaded from this [link](https://zenodo.org/records/10066853).
 
 ## Running the code 
 
@@ -55,14 +55,15 @@ cd bin
 python main.py --base_path <PATH-TO-DATASET> --i2i_config_path <PATH-TO-TEST-CONFIG-FILE> --src_marker HE --dst_marker <DST-MARKER-NAME> --is_test True
 ```
 
-If you use this code, please consider citing our work:
+Details about our model architecture and implementation can be found in our [preprint](https://www.biorxiv.org/content/10.1101/2023.11.29.568996v1). If you use this code, please consider citing our work:
 
 ```
-@inproceedings{pati2021,
-    title = "Towards multiplexed histopathology with deep learning-based virtual staining",
-    author = "Pushpak Pati, Sofia Karkampouna, Francesco Bonollo, Eva Comperat, Martina Radic, Martin Spahn, Adriano Martinelli, Martin Wartenberg, Marianna Kruithof-de Julio, Maria Anna Rapsomaniki1",
-    booktitle = "TBA",
-    url = "TBA",
-    year = "2023"
+@article{pati2023multiplexed,
+  title={Multiplexed tumor profiling with generative AI accelerates histopathology workflows and improves clinical predictions},
+  author={Pati, Pushpak and Karkampouna, Sofia and Bonollo, Francesco and Comperat, Eva and Radic, Martina and Spahn, Martin and Martinelli, Adriano and Wartenberg, Martin and Kruithof-de Julio, Marianna and Rapsomaniki, Maria Anna},
+  journal={bioRxiv},
+  pages={2023--11},
+  year={2023},
+  publisher={Cold Spring Harbor Laboratory}
 } 
 ```
